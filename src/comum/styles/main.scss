@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+@import "~bulma/bulma";
+@import '~vue-multiselect/dist/vue-multiselect.min.css';
+
+.cor-branca-ancora {
+    color: white !important;
+    a {
+        color: white;
+    }
+    .content-column-header {
+        padding-top: 9px !important;
+    }
+}

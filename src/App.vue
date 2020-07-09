@@ -1,32 +1,43 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <div id="app">
+        <alt-header/>
+        <div id="main" class="container">
+            <router-view/>
+        </div>
+        <alt-footer/>
   </div>
 </template>
 
+<script>
+    import Vue from 'vue'
+    import Header from './header/components/Header'
+    import Footer from './footer/components/Footer'
+    
+    import Multiselect from 'vue-multiselect'
+    import VCalendar from 'v-calendar'
+
+    Vue.component('alt-header', Header)
+    Vue.component('alt-footer', Footer)
+    Vue.component('multiselect', Multiselect)
+
+    Vue.use(VCalendar)
+
+    export default {}
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+    @import './comum/styles/main.scss';
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    #main {
+        margin-top: 120px;
+        margin-bottom: 10px;
+        padding-bottom: 80px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
-  }
-}
+
+    .container {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 </style>
