@@ -1,5 +1,5 @@
 import produtos from '@/data/produtos.json'
-import { Produto } from '@/produto/models/produto_model.ts'
+import { Produto } from '@/produto/models/produto_model'
 
 export default {
     state: {
