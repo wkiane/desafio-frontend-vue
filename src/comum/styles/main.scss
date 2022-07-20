@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
-@import "~bulma/bulma";
 @import '~vue-multiselect/dist/vue-multiselect.min.css';
+@import "bulma.variables";
+@import "~bulma/bulma";
 
 .cor-branca-ancora {
     color: white !important;

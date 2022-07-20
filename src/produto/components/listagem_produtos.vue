@@ -1,6 +1,6 @@
 <template>
     <div class="columns is-desktop is-3-desktop">
-        <div class="column" v-for="(produto, index) in produtos" :key="index">
+        <router-link :to="'/' + produto.id" class="column" v-for="(produto, index) in produtos" :key="index">
             <div class="card">
                 <div class="card-image">
                     <figure class="image is-square">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </router-link>
     </div>
 </template>
 
