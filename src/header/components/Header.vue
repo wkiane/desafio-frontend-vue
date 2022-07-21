@@ -6,6 +6,14 @@
 
 <script>
 export default {
+    created() {
+        this.$store.dispatch('initCategorias')
+    },
+    computed: {
+        categorias() {
+            return this.$store.getters.categorias.categorias
+        }
+    },
     data() {
         return {
 
@@ -86,12 +94,7 @@ export default {
                                 contentBoxes: [
                                     {
                                         text: 'Categorias',
-                                        items: [
-                                            {
-                                                text: 'Eletronicos',
-                                                href: '/categorias/eletronicos',
-                                            },
-                                        ]
+                                        items: this.categorias
                                     },
                                 ]
                             },

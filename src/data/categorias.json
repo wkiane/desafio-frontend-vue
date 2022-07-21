@@ -1,0 +1,12 @@
+{
+  "categorias": [
+    {
+      "text": "Eletronicos",
+      "href": "/categorias/eletronicos"
+    },
+    {
+      "text": "Calçados",
+      "href": "/categorias/calcados"
+    }
+  ]
+}

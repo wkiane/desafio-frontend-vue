@@ -1,6 +1,6 @@
 <template>
-    <div class="columns is-desktop is-3-desktop">
-        <router-link :to="'/' + produto.id" class="column" v-for="(produto, index) in produtos" :key="index">
+    <div class="columns is-multiline is-desktop is-3-desktop">
+        <router-link :to="'/' + produto.id" class="column is-one-fifth-desktop" v-for="(produto, index) in produtos" :key="index">
             <div class="card">
                 <div class="card-image">
                     <figure class="image is-square">
@@ -23,14 +23,7 @@
 
 <script>
 export default {
-    created() {
-        this.$store.dispatch('initProdutos')
-    },
-    computed: {
-        produtos() {
-            return this.$store.getters.produtos.produtos
-        }
-    }
+    props: ['produtos'],
 }
 </script>
 

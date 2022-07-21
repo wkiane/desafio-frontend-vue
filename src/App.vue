@@ -2,7 +2,7 @@
     <div id="app">
         <alt-header/>
         <div id="main" class="container">
-            <router-view/>
+            <router-view :key="$route.path"/>
         </div>
         <alt-footer/>
   </div>

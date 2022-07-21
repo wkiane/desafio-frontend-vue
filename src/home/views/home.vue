@@ -4,13 +4,11 @@
             <div class="column is-one-fifth">
                 <aside class="menu">
                     <p class="menu-label">Categoria</p>
-                    <ul class="menu-list">
-                        <li><a>Eletrônicos</a></li>
-                    </ul>
+                    <sidebarCategorias></sidebarCategorias>
                 </aside>
             </div>
             <div class="column">
-                <listagemProdutos></listagemProdutos>
+                <listagemProdutos :produtos="produtos"></listagemProdutos>
             </div>
         </div>
     </div>
@@ -18,10 +16,22 @@
 
 <script>
 import listagemProdutos from '@/produto/components/listagem_produtos'
+import sidebarCategorias from '@/categoria/components/sidebar_categorias'
 
 export default {
     components: {
-        listagemProdutos 
+        listagemProdutos,
+        sidebarCategorias
+    },
+    created() {
+        this.$store.dispatch('initProdutos', {
+            id: ''
+        })
+    },
+    computed: {
+        produtos() {
+            return this.$store.getters.produtos
+        }
     },
     data () {
         return {}

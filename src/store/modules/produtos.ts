@@ -11,8 +11,12 @@ export default {
         }
     },
     actions: {
-        initProdutos({ commit }: any) {
-            commit('setProdutos', produtos)
+        initProdutos({ commit }: any, data: { id: string }) {
+            let listaProdutosSelecionados = produtos.produtos;
+            if(data.id != "") {
+                listaProdutosSelecionados = produtos.produtos.filter(_produto => _produto.categoria === data.id);
+            }
+            commit('setProdutos', listaProdutosSelecionados)
         }
     },
     getters: {
