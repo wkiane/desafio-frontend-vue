@@ -6,12 +6,26 @@
 
 <script>
 export default {
-    created() {
-        this.$store.dispatch('initCategorias')
-    },
     computed: {
         categorias() {
             return this.$store.getters.categorias
+        },
+        login() {
+            return this.$store.getters.login
+        }
+    },
+    watch:{
+        $route: {
+            handler: function(value){
+                if(value.hash === '#logout') {
+                    this.$store.dispatch('fazerLogout')
+                    history.pushState("", document.title, window.location.pathname + window.location.search);
+                }
+            },
+            deep: true
+        },
+        login: function () {
+            this.construirNavbar();
         }
     },
     data() {
@@ -19,7 +33,9 @@ export default {
 
         }
     },
-    mounted() {
+    async mounted() {
+        await this.$store.dispatch("initLogin");
+        await this.$store.dispatch("initCategorias");
         this.construirNavbar();
     },
     methods: {
@@ -60,6 +76,7 @@ export default {
         },
 
         construirNavbar() {
+            document.querySelector("navbar-vanilla").innerHTML = ''
             this.navbar = new Navbar(this.getParametrosNavbar());
         },
 
@@ -99,10 +116,41 @@ export default {
                                 ]
                             },
                         ]
-                    }
-
+                    },
                 ],
             };
+
+             if(this.login) {
+                navbarParameters.dropDowns.push({
+                    position: 'right',
+                    text: 'Área do Usuário',
+                    clickEvent: '',
+                    customClass: 'cor-branca-ancora',
+                    columns: [
+                        {
+                            contentBoxes: [
+                                {
+                                    text: 'Área do Usuário',
+                                    items: [
+                                        {
+                                            text: "Sair",
+                                            href: '#logout',
+                                        }
+                                    ]
+                                },
+                            ]
+                        },
+                    ]
+                })
+            } else {
+               navbarParameters.items.push({
+                    text: 'Fazer Login',
+                    clickEvent: '',
+                    customClass: 'cor-branca-ancora',
+                    href: '/login',
+                    position: 'right',
+                })
+            }
             return navbarParameters;
         }
 

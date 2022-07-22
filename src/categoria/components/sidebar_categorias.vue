@@ -10,9 +10,6 @@
 
 <script>
 export default {
-  created() {
-    this.$store.dispatch("initCategorias");
-  },
   computed: {
     categorias() {
       return this.$store.getters.categorias;

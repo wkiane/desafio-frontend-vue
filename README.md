@@ -9,3 +9,7 @@ Boa sorte! :-)
 ## Instruções
 - Desenvolver as novas funcionalidades de acordo com as instruções fornecidas pelo RH em arquivo PDF 
 - Respeitar os padrões de arquitetura, nomenclatura e frameworks definidos da nossa stack
+
+
+## Observações
+Login e Senha : teste@teste.com e 12345
