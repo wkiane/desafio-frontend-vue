@@ -1,5 +1,5 @@
 import { Categoria } from '@/categoria/models/categoria_model'
-import categorias from '@/data/categorias.json'
+import { get_categorias } from '@/categoria/services/categoria_service'
 
 export default {
     state: {
@@ -11,7 +11,8 @@ export default {
         }
     },
     actions: {
-        initCategorias({ commit }: any) {
+        async initCategorias({ commit }: any) {
+            const categorias = await get_categorias();
             commit('setCategorias', categorias)
         }
     },

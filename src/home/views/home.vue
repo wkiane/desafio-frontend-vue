@@ -8,7 +8,8 @@
                 </aside>
             </div>
             <div class="column">
-                <listagemProdutos :produtos="produtos"></listagemProdutos>
+                <filtro></filtro>
+                <listagemProdutos></listagemProdutos>
             </div>
         </div>
     </div>
@@ -17,22 +18,20 @@
 <script>
 import listagemProdutos from '@/produto/components/listagem_produtos'
 import sidebarCategorias from '@/categoria/components/sidebar_categorias'
+import filtro from '@/filtro/components/filtroProdutos.vue'
 
 export default {
     components: {
         listagemProdutos,
-        sidebarCategorias
+        sidebarCategorias,
+        filtro
     },
     created() {
         this.$store.dispatch('initProdutos', {
             id: ''
         })
     },
-    computed: {
-        produtos() {
-            return this.$store.getters.produtos
-        }
-    },
+    
     data () {
         return {}
     }

@@ -8,7 +8,7 @@
                 </aside>
             </div>
             <div class="column">
-                <listagemProdutos :produtos="produtos"></listagemProdutos>
+                <listagemProdutos></listagemProdutos>
             </div>
         </div>
     </div>

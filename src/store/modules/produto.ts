@@ -1,5 +1,5 @@
-import produtos from '@/data/produtos.json'
 import { Produto } from '@/produto/models/produto_model'
+import { get_produto } from '@/produto/services/produto_service'
 
 export default {
     state: {
@@ -11,8 +11,8 @@ export default {
         }
     },
     actions: {
-        initProduto({ commit }: any, data: { id: string }) {
-            const produto = produtos.produtos.find(_produto => _produto.id.toString() === data.id)
+        async initProduto({ commit }: any, data: { id: string }) {
+            const produto = await get_produto(data.id);
             commit('setProduto', produto)
         }
     },

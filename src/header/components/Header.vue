@@ -11,7 +11,7 @@ export default {
     },
     computed: {
         categorias() {
-            return this.$store.getters.categorias.categorias
+            return this.$store.getters.categorias
         }
     },
     data() {

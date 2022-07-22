@@ -23,7 +23,11 @@
 
 <script>
 export default {
-    props: ['produtos'],
+    computed: {
+        produtos() {
+            return this.$store.getters.produtos
+        }
+    },
 }
 </script>
 
