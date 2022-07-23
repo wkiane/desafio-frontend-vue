@@ -1,18 +1,24 @@
 <template>
     <div class="header">
         <navbar-vanilla />
+        <carrinho v-if="carrinhoVisivel" />
     </div>
 </template>
 
 <script>
+import Carrinho from '@/carrinho/views/carrinho.vue'
 export default {
+    components: { Carrinho },
     computed: {
         categorias() {
             return this.$store.getters.categorias
         },
         login() {
             return this.$store.getters.login
-        }
+        },
+        carrinhoVisivel() {
+            return this.$store.getters.carrinhoVisivel
+        },
     },
     watch:{
         $route: {
@@ -28,17 +34,18 @@ export default {
             this.construirNavbar();
         }
     },
-    data() {
-        return {
-
-        }
-    },
     async mounted() {
         await this.$store.dispatch("initLogin");
         await this.$store.dispatch("initCategorias");
+        this.$store.dispatch("initCarrinho");
         this.construirNavbar();
+        document.querySelector('[href="#carrinho"]').addEventListener('click', this.setCarrinhoVisivel)
     },
     methods: {
+        setCarrinhoVisivel(e) {
+            e.preventDefault()
+            this.$store.dispatch('setVisibilidadeCarrinho')
+        },
         setRotas() {
             // páginas apenas do vueJs
             var paginasVue = {
@@ -72,7 +79,7 @@ export default {
                         });
                     });
                 }
-            });
+            });        
         },
 
         construirNavbar() {
@@ -93,12 +100,19 @@ export default {
                 ],
                 items: [
                     {
-                        text: 'home',
+                        text: 'Home',
                         clickEvent: '',
                         customClass: 'cor-branca-ancora',
                         href: '/',
                         position: 'center',
                     },
+                    {
+                        text: 'Carrinho',
+                        clickEvent: '',
+                        customClass: 'cor-branca-ancora',
+                        href: '#carrinho',
+                        position: 'right',
+                    }
                 ],
                 dropDowns: [
                     {

@@ -27,7 +27,7 @@ export default {
             }
             localStorage.setItem('login', JSON.stringify(data));
             commit('setLogin', login);
-            router.push('/')
+            if(login) router.push('/')
         },
         fazerLogout({ commit }: any) {
             localStorage.removeItem('login')
