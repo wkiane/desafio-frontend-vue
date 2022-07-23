@@ -23,6 +23,12 @@
 
 <script>
 export default {
+    props: ['categoria'],
+    created() {
+        this.$store.dispatch('initProdutos', {
+            id: this.categoria
+        })
+    },
     computed: {
         produtos() {
             return this.$store.getters.produtos

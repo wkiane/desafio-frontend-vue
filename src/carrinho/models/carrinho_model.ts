@@ -1,6 +1,6 @@
 export class ProdutoCarrinho {
     public id:string|undefined = undefined;
-    public descricao:string|undefined = undefined;
+    public descricao:string = "";
     public qtd:number = 0;
     public preco:number = 0;
     public precoTotal:number = 0;

@@ -9,7 +9,7 @@
             </div>
             <div class="column">
                 <filtro></filtro>
-                <listagemProdutos></listagemProdutos>
+                <listagemProdutos categoria=""></listagemProdutos>
             </div>
         </div>
     </div>
@@ -26,12 +26,6 @@ export default {
         sidebarCategorias,
         filtro
     },
-    created() {
-        this.$store.dispatch('initProdutos', {
-            id: ''
-        })
-    },
-    
     data () {
         return {}
     }

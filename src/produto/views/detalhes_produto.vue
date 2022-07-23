@@ -30,8 +30,6 @@ export default {
         this.$store.dispatch('initProduto', {
             id: this.$route.params.id
         })
-
-        console.log(this.$store.getters.carrinho.length)
     },
     computed: {
         produto() {

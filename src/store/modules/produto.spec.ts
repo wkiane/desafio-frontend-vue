@@ -1,46 +1,74 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
+
 import Vuex from 'vuex'
-import categoria from './categoria.vue'
-import produtoModule from '@/store/modules/produtos'
+
+import detalhesProduto from '@/produto/views/detalhes_produto.vue'
+
+import produtoModule from './produto'
+import { Produto } from '@/produto/models/produto_model'
+
 
 const localVue = createLocalVue()
 
+
 localVue.use(Vuex)
 
-describe('categoria.vue', () => {
+
+describe('detalhesProduto.vue', () => {
+
     let actions:any
+
     let state:any
+
     let store:any
 
+
     beforeEach(() => {
+
         state = {
-            produtos: []
+
+            produto: new Produto({ id: '1'})
+
         }
+
 
         actions = {
-            initProdutos: jest.fn()
+
+            initProduto: jest.fn()
+
         }
 
+
         store = new Vuex.Store({
+
             modules: {
+
                 produtoModule: {
+
                     state,
+
                     actions,
+
                     getters: produtoModule.getters
+
                 }
+
             }
+
         })
+
     })
 
-    it('verifica se a action initProdutos foi chamada', () => {
-        const wrapper = shallowMount(categoria, { store, localVue, mocks: {
+
+    it('verifica se a action initProduto foi chamada', () => {
+        const wrapper = shallowMount(detalhesProduto, { store, localVue, mocks: {
             $route: {
                 params: {
-                    id: 'eletronicos'
+                    id: 1
                 }
             }
-        } })
-
-        expect(actions.initProdutos).toHaveBeenCalled()
+        }})
+        expect(actions.initProduto).toHaveBeenCalled()
     })
+
 })

@@ -8,7 +8,7 @@
                 </aside>
             </div>
             <div class="column">
-                <listagemProdutos></listagemProdutos>
+                <listagemProdutos :categoria="$route.params.id"></listagemProdutos>
             </div>
         </div>
     </div>
@@ -22,16 +22,6 @@ export default {
     components: {
         listagemProdutos,
         sidebarCategorias
-    },
-    created() {
-        this.$store.dispatch('initProdutos', {
-            id: this.$route.params.id
-        })
-    },
-    computed: {
-        produtos() {
-            return this.$store.getters.produtos
-        }
     },
     data () {
         return {}
