@@ -11,5 +11,10 @@ Boa sorte! :-)
 - Respeitar os padrões de arquitetura, nomenclatura e frameworks definidos da nossa stack
 
 
+## Como rodar o projeto
+- Rodar ```npm i``` para instalar as dependências
+- Rodar ```npm run api``` para iniciar o servidor do json-server
+- Rodar ```npm run serve``` para iniciar o servidor do frontend
+
 ## Observações
 Login e Senha : teste@teste.com e 12345
