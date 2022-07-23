@@ -3,10 +3,16 @@
 @import "bulma.variables";
 @import "~bulma/bulma";
 
+.navbar-menu-mobile {
+    z-index: 3;
+}
+
 .cor-branca-ancora {
-    color: white !important;
-    a {
-        color: white;
+    @media screen and (max-width: 768) {
+        color: white !important;
+        a {
+            color: white;
+        }
     }
     .content-column-header {
         padding-top: 9px !important;

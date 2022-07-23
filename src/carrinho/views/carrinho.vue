@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <button @click="finalizarCompra" class="button is-primary mt-4">Checkout</button>
+            <button @click="finalizarCompra" class="button is-primary mt-4 mr-2">Checkout</button>
             <button @click="limparCarrinho" class="button mt-4">Limpar Carrinho</button>
         </div>
     </div>
@@ -70,7 +70,6 @@ export default {
         top: 71px;
         right: 20px;
         z-index: 2;
-        width: 20%;
         min-width: 200px;
         padding: 10px 20px;
         background: white;
